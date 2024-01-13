@@ -3,6 +3,8 @@ import ReactDOM from "react-dom/client";
 
 import './global.scss'
 import './styles/index.scss'
+import './styles/circle.scss'
+import './styles/metric.scss'
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
