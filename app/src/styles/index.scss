@@ -42,6 +42,15 @@
         border-radius: 10px;
         cursor: pointer;
     }
+    &--menu {
+        padding: 8px;
+        border-radius: 5px;
+        background-color: $secondaryBlack;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+    }
 }
 
 .metrics {

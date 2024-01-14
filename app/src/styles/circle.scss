@@ -45,3 +45,21 @@
         }
     }
 }
+
+.short-circle {
+    width: 98px;
+    height: 98px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: 2px solid #87CEEB;
+    box-shadow: 0px 0px 10px 0px #87CEEB;
+    &--number {
+        font-size: 32px;
+        font-weight: 400;
+        letter-spacing: 1.6px;
+        text-align: center;
+    }
+}

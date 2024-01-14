@@ -10,8 +10,10 @@ import Modal from '../components/modal'
 import humidity from '../assets/humidity.svg'
 import wind from '../assets/wind.svg'
 import pressure from '../assets/pressure.svg'
+import { useNavigate } from 'react-router-dom';
 
 export default function IndexPage() {
+    const navigator = useNavigate()
     const currentDate = new Date()
     const controls = useAnimation();
 
@@ -84,25 +86,21 @@ export default function IndexPage() {
                             <TemperatureCircle
                                 circletType={ECircleType.secondaryCircle}
                                 temperature={-23}
-                                description={''}
                                 hour={'Сейчас'}
                             />
                             <TemperatureCircle
                                 circletType={ECircleType.secondaryCircle}
                                 temperature={-25}
-                                description={''}
                                 hour={'14:00'}
                             />
                             <TemperatureCircle
                                 circletType={ECircleType.secondaryCircle}
                                 temperature={-22}
-                                description={''}
                                 hour={'16:00'}
                             />
                             <TemperatureCircle
                                 circletType={ECircleType.secondaryCircle}
                                 temperature={-27}
-                                description={''}
                                 hour={'18:00'}
                             />
                         </div>
@@ -112,6 +110,7 @@ export default function IndexPage() {
                             className="buttons--button"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
+                            onClick={() => navigator('/details')}
                         >
                             Подробнее
                         </motion.button>

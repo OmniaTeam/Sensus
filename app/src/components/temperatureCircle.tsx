@@ -3,7 +3,7 @@ import { ECircleType } from "../models/ECircleType";
 interface TemperatureCircleProps {
     circletType : ECircleType;
     temperature : number;
-    description : string;
+    description? : string;
     hour? : string
 }
 
@@ -17,10 +17,12 @@ export default function TemperatureCircle(props: TemperatureCircleProps) {
         {props.circletType === ECircleType.secondaryCircle && <SecondaryTemperatureCircle 
             circletType={props.circletType}
             temperature={props.temperature}
-            description={props.description}
             hour={props.hour}
         />}
-        {props.circletType === ECircleType.shortCircle && <ShorttemperatureCircle />}
+        {props.circletType === ECircleType.shortCircle && <ShorttemperatureCircle 
+            circletType={props.circletType}
+            temperature={props.temperature}
+        />}
     </>)
 }
 
@@ -40,6 +42,8 @@ const SecondaryTemperatureCircle = (props : TemperatureCircleProps) => {
     </div>
 }
 
-const ShorttemperatureCircle = () => {
-    return <div></div>
+const ShorttemperatureCircle = (props: TemperatureCircleProps) => {
+    return <div className="short-circle">
+        <p className="short-circle--number">{props.temperature}°</p>
+    </div>
 }
