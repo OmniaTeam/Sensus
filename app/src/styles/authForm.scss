@@ -1,0 +1,63 @@
+@import '../global.scss';
+
+.auth {
+    max-width: 315px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    &--heading {
+        font-size: 24px;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+    }
+    &--inputs {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        &__input {
+            padding: 16px 0 16px 8px;
+            width: calc(100% - 11px);
+            border: 1px solid #FFF;
+            background-color: $secondaryBlack;
+            border-radius: 10px;
+            color: $primaryWhite;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+        }
+    }
+    &--lower {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        &__button {
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: $primaryWhite;
+            background-color: $primaryBlack;
+            width: 100%;
+            padding: 16px 0;
+            border: none;
+            border-radius: 10px;
+        }
+        &__text {
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.8px;
+            text-align: center;
+            span {
+                color: #87CEEB;
+                text-decoration: underline;
+                text-underline-offset: 4px;
+                cursor: pointer;
+                user-select: none;
+            }
+        }
+    }
+}

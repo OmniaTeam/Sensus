@@ -5,6 +5,8 @@ import './global.scss'
 import './styles/index.scss'
 import './styles/circle.scss'
 import './styles/metric.scss'
+import './styles/authForm.scss'
+import './styles/modal.scss'
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 

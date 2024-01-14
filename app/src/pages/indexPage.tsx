@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ECircleType } from '../models/ECircleType';
+import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 
+import AuthForm from '../components/authForm';
 import TemperatureCircle from '../components/temperatureCircle';
 import Metric from '../components/metric';
 import Modal from '../components/modal'
@@ -11,6 +13,7 @@ import pressure from '../assets/pressure.svg'
 
 export default function IndexPage() {
     const currentDate = new Date()
+    const controls = useAnimation();
 
     const day: number = currentDate.getDate();
     const month: number = currentDate.getMonth() + 1;
@@ -19,10 +22,22 @@ export default function IndexPage() {
     const formattedDay: string = day < 10 ? `0${day}` : `${day}`;
     const formattedMonth: string = month < 10 ? `0${month}` : `${month}`;
 
-    const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
+    const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false)
+
+    useEffect(() => {
+        controls.start({
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8 },
+        });
+    }, [controls]);
 
     return (<>
-        <main className="main">
+        <motion.main 
+            className="main"
+            initial={{ opacity: 0, y: 20 }}
+            animate={controls}
+        >
             <section className="hero">
                 <div className="container">
                     <div className="heading">
@@ -30,9 +45,14 @@ export default function IndexPage() {
                             <h2 className="heading--info__title">Липецк</h2>
                             <p className="heading--info__date">{formattedDay}.{formattedMonth}.{year}</p>
                         </div>
-                        <button className="heading--button">
+                        <motion.button 
+                            className="heading--button" 
+                            onClick={() => (setIsAuthModalOpen(true))}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                        >
                             Войти
-                        </button>
+                        </motion.button>
                     </div>
                     <div className="temperature">
                         <TemperatureCircle
@@ -88,24 +108,32 @@ export default function IndexPage() {
                         </div>
                     </div>
                     <div className="buttons">
-                        <button className="buttons--button">
+                        <motion.button
+                            className="buttons--button"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                        >
                             Подробнее
-                        </button>
-                        <button className="buttons--button">
+                        </motion.button>
+                        <motion.button
+                            className="buttons--button"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                        >
                             Следующие 7 дней
-                        </button>
+                        </motion.button>
                     </div>
                 </div>
             </section>
-        </main>
-        {isModalOpen && 
-            (
-                <Modal onClose={() => setIsModalOpen(false)}>
-                    <div className="modal--container">
-                        <h3 className="modal--container__title">Modal</h3>
-                    </div>
+        </motion.main>
+        <AnimatePresence>
+            {isAuthModalOpen && (                
+                <Modal
+                    onClose={() => setIsAuthModalOpen(false)}
+                >
+                    <AuthForm/>
                 </Modal>
-            )
-        }
+            )}
+        </AnimatePresence>
     </>)
 }
