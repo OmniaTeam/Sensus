@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sensus-cache-data';
+const CACHE_NAME = 'cache_data';
 
 self.addEventListener("install", (event) => {
     event.waitUntil(
