@@ -7,19 +7,19 @@ self.addEventListener("install", (event) => {
             .then((cache) => {
                 return cache.addAll([
                     "/",
-                    "../index.html",
-                    "../src/global.scss",
-                    "../src/styles/authForm.scss",
-                    "../src/styles/circle.scss",
-                    "../src/styles/index.scss",
-                    "../src/styles/metric.scss",
-                    "../src/styles/modal.scss",
-                    "../src/assets/arrow.svg",
-                    "../src/assets/export.svg",
-                    "../src/assets/humidity.svg",
-                    "../src/assets/menu.svg",
-                    "../src/assets/pressure.svg",
-                    "../src/assets/wind.svg",
+                    new Request("../index.html"),
+                    new Request("../src/global.scss"),
+                    new Request("../src/styles/authForm.scss"),
+                    new Request("../src/styles/circle.scss"),
+                    new Request("../src/styles/index.scss"),
+                    new Request("../src/styles/metric.scss"),
+                    new Request("../src/styles/modal.scss"),
+                    new Request("../src/assets/arrow.svg"),
+                    new Request("../src/assets/export.svg"),
+                    new Request("../src/assets/humidity.svg"),
+                    new Request("../src/assets/menu.svg"),
+                    new Request("../src/assets/pressure.svg"),
+                    new Request("../src/assets/wind.svg"),
                 ]);
             })
     );
@@ -57,8 +57,7 @@ self.addEventListener("fetch", (event) => {
                         }
                         return networkResponse;
                     })
-                    // Возвращаем кэшированные данные в случае ошибки сетевого запроса
-                    .catch(() => cachedResponse);
+                    .catch(() => cachedResponse); // Возвращаем кэшированные данные в случае ошибки сетевого запроса
 
                 return cachedResponse || fetchPromise;
             })
