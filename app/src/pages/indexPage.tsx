@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { ECircleType } from '../models/ECircleType';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 import AuthForm from '../components/authForm';
 import TemperatureCircle from '../components/temperatureCircle';
@@ -10,7 +11,6 @@ import Modal from '../components/modal'
 import humidity from '../assets/humidity.svg'
 import wind from '../assets/wind.svg'
 import pressure from '../assets/pressure.svg'
-import { useNavigate } from 'react-router-dom';
 
 export default function IndexPage() {
     const navigator = useNavigate()

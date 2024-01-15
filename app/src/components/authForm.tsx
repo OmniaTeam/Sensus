@@ -1,5 +1,4 @@
 import { useState } from "react"
-import { motion } from "framer-motion";
 
 export default function AuthForm() {
     const [isLoginMode, setIsLoginMode] = useState<boolean>(true)
@@ -16,7 +15,7 @@ export default function AuthForm() {
         console.log(userLogin, userPassword, userEmail, userConfirmPassword)
     }
 
-    return <motion.form className="auth">
+    return <form className="auth">
         <h2 className="auth--heading">{isLoginMode ? "Вход" : "Регистрация"}</h2>
         <div className="auth--inputs">
             {isLoginMode 
@@ -75,5 +74,5 @@ export default function AuthForm() {
                     : <>уже есть аккаунт?<br/><span onClick={modeSwitch}>войти в систему</span></>
             }</p>
         </div>
-    </motion.form>
+    </form>
 }
