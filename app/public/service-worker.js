@@ -7,9 +7,7 @@ self.addEventListener("install", (event) => {
                 return cache.addAll([
 					"/",
 					"../index.html",
-					"../src/global.scss",
-					"../src/styles/**/*.scss",
-					"../src/assets/**/*.svg",
+					"../src/global.scss"
                 ]);
             })
             .catch(error => {
