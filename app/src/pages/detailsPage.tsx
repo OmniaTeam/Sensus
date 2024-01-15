@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { motion, useAnimation, AnimatePresence } from "framer-motion"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion"
 import { ECircleType } from "../models/ECircleType";
 import { useNavigate } from "react-router-dom";
 import { getFormattedCurrentData } from "../utils/dataUtils";
@@ -16,7 +16,6 @@ import pressure from '../assets/pressure.svg'
 import exportIcon from '../assets/export.svg'
 
 export default function DetailsPage() {
-    const controls = useAnimation();
     const navigator = useNavigate()
 
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
@@ -26,20 +25,8 @@ export default function DetailsPage() {
 
     const [userReport, setUserReport] = useState<string>('')
 
-    useEffect(() => {
-        controls.start({
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.8 },
-        });
-    }, [controls]);
-
     return (<>
-        <motion.main 
-            className="main"
-            initial={{ opacity: 0, y: 20 }}
-            animate={controls}
-        >
+        <main className="main">
             <section className="details">
                 <div className="details--container">
                     <div className="heading">
@@ -106,7 +93,7 @@ export default function DetailsPage() {
                     </div>
                 </div>
             </section>
-        </motion.main>
+        </main>
         <AnimatePresence>
             {isMenuOpen && (                
                 <Modal

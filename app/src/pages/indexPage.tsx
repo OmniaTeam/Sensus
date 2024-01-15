@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { ECircleType } from '../models/ECircleType';
-import { motion, AnimatePresence, useAnimation } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { getFormattedCurrentData } from '../utils/dataUtils';
 
@@ -15,24 +15,11 @@ import pressure from '../assets/pressure.svg'
 
 export default function IndexPage() {
     const navigator = useNavigate()
-    const controls = useAnimation();
 
     const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false)
 
-    useEffect(() => {
-        controls.start({
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.8 },
-        });
-    }, [controls]);
-
     return (<>
-        <motion.main 
-            className="main"
-            initial={{ opacity: 0, y: 20 }}
-            animate={controls}
-        >
+        <main className="main">
             <section className="hero">
                 <div className="container">
                     <div className="heading">
@@ -117,7 +104,7 @@ export default function IndexPage() {
                     </div>
                 </div>
             </section>
-        </motion.main>
+        </main>
         <AnimatePresence>
             {isAuthModalOpen && (                
                 <Modal
