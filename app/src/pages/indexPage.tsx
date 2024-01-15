@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { ECircleType } from '../models/ECircleType';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { getFormattedCurrentData } from '../utils/dataUtils';
 
 import AuthForm from '../components/authForm';
 import TemperatureCircle from '../components/temperatureCircle';
@@ -14,15 +15,7 @@ import pressure from '../assets/pressure.svg'
 
 export default function IndexPage() {
     const navigator = useNavigate()
-    const currentDate = new Date()
     const controls = useAnimation();
-
-    const day: number = currentDate.getDate();
-    const month: number = currentDate.getMonth() + 1;
-    const year: number = currentDate.getFullYear();
-
-    const formattedDay: string = day < 10 ? `0${day}` : `${day}`;
-    const formattedMonth: string = month < 10 ? `0${month}` : `${month}`;
 
     const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false)
 
@@ -45,7 +38,7 @@ export default function IndexPage() {
                     <div className="heading">
                         <div className="heading--info">
                             <h2 className="heading--info__title">Липецк</h2>
-                            <p className="heading--info__date">{formattedDay}.{formattedMonth}.{year}</p>
+                            <p className="heading--info__date">{getFormattedCurrentData()}</p>
                         </div>
                         <motion.button 
                             className="heading--button" 

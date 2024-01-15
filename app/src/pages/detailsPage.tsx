@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, useAnimation, AnimatePresence } from "framer-motion"
 import { ECircleType } from "../models/ECircleType";
 import { useNavigate } from "react-router-dom";
+import { getFormattedCurrentData } from "../utils/dataUtils";
 
 import TemperatureCircle from "../components/temperatureCircle";
 import Modal from "../components/modal";
@@ -15,16 +16,8 @@ import pressure from '../assets/pressure.svg'
 import exportIcon from '../assets/export.svg'
 
 export default function DetailsPage() {
-    const currentDate = new Date()
     const controls = useAnimation();
     const navigator = useNavigate()
-
-    const day: number = currentDate.getDate();
-    const month: number = currentDate.getMonth() + 1;
-    const year: number = currentDate.getFullYear();
-
-    const formattedDay: string = day < 10 ? `0${day}` : `${day}`;
-    const formattedMonth: string = month < 10 ? `0${month}` : `${month}`;
 
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
     const [isReportOpen, setIsReportOpen] = useState<boolean>(false)
@@ -52,7 +45,7 @@ export default function DetailsPage() {
                     <div className="heading">
                         <div className="heading--info">
                             <h2 className="heading--info__title">Липецк</h2>
-                            <p className="heading--info__date">{formattedDay}.{formattedMonth}.{year}</p>
+                            <p className="heading--info__date">{getFormattedCurrentData()}</p>
                         </div>
                         <motion.div 
                             className="heading--menu" 
