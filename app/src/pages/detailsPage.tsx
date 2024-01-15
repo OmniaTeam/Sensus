@@ -31,6 +31,8 @@ export default function DetailsPage() {
     const [isExportMenuOpen, setIsExportMenuOpen] = useState<boolean>(false) 
     const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false)
 
+    const [userReport, setUserReport] = useState<string>('')
+
     useEffect(() => {
         controls.start({
             opacity: 1,
@@ -103,6 +105,7 @@ export default function DetailsPage() {
                                 className="summary--button"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.9 }}
+                                onClick={() => setIsReportOpen(true)}
                             >
                                 Не согласен? Составь отчёт
                             </motion.button>
@@ -147,7 +150,24 @@ export default function DetailsPage() {
                 <Modal
                     onClose={() => setIsReportOpen(false)}
                 >
-                    <></>
+                    <form className="report-form">
+                        <h2 className="report-form--heading">Отчёт</h2>
+                        <div className="report-form--input">
+                            <p className="report-form--input__text">Как вы ощущаете температуру?</p>
+                            <input 
+                                type="text" 
+                                className="report-form--input__place"
+                                placeholder="-23°"
+                                onChange={(event) => setUserReport(event.target.value)}
+                            />
+                        </div>
+                        <motion.button 
+                            className="report-form--button"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => console.log(userReport)}
+                        >Составить отчёт</motion.button>
+                    </form>
                 </Modal>
             )}
         </AnimatePresence>
