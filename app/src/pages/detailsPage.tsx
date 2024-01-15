@@ -40,7 +40,11 @@ export default function DetailsPage() {
     }, [controls]);
 
     return (<>
-        <main className="main">
+        <motion.main 
+            className="main"
+            initial={{ opacity: 0, y: 20 }}
+            animate={controls}
+        >
             <section className="details">
                 <div className="details--container">
                     <div className="heading">
@@ -106,7 +110,7 @@ export default function DetailsPage() {
                     </div>
                 </div>
             </section>
-        </main>
+        </motion.main>
         <AnimatePresence>
             {isMenuOpen && (                
                 <Modal
