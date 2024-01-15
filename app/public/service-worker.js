@@ -12,6 +12,9 @@ self.addEventListener("install", (event) => {
 					"../src/assets/**/*.svg",
                 ]);
             })
+            .catch(error => {
+                console.error('Failed to cache resources:', error);
+            })
     );
 });
 
