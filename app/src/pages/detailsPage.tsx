@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ECircleType } from "../models/ECircleType";
 import { useNavigate } from "react-router-dom";
 import { getFormattedCurrentData } from "../utils/dataUtils";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { hourly } from "../data/hourlyInfo";
 
 import TemperatureCircle from "../components/temperatureCircle";
 import Modal from "../components/modal";
@@ -95,6 +97,29 @@ export default function DetailsPage() {
                                 Не согласен? Составь отчёт
                             </motion.button>
                         </div>
+                        <div className="hourly-block">
+                            <h2 className="hourly-block--title">Почасовая сводка</h2>
+                            <Swiper
+                                spaceBetween={8}
+                                slidesPerView={4}
+                                onSlideChange={() => console.log('slide change')}
+                                onSwiper={(swiper) => console.log(swiper)}
+                                style={{
+                                    cursor: "grab"
+                                }}
+                            >
+                                {hourly.map((value, index) =>
+                                    <SwiperSlide key={index}>
+                                        <TemperatureCircle
+                                            key={index}
+                                            circletType={value.circletType}
+                                            temperature={value.temperature}
+                                            hour={value.hour}
+                                        />
+                                    </SwiperSlide>
+                                )}
+                            </Swiper>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -175,7 +200,7 @@ export default function DetailsPage() {
             )}
         </AnimatePresence>
         <AnimatePresence>
-            {isAuthModalOpen && (                
+            {isAuthModalOpen && (                   
                 <Modal
                     onClose={() => setIsAuthModalOpen(false)}
                 >

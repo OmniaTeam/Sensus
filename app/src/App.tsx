@@ -7,6 +7,7 @@ import './styles/circle.scss'
 import './styles/metric.scss'
 import './styles/authForm.scss'
 import './styles/modal.scss'
+import 'swiper/css';
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 

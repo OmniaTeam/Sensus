@@ -89,6 +89,9 @@
         max-width: 315px;
         margin: 0 auto;
         &__content {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
             padding-top: 30px;
         }
     }
@@ -136,6 +139,18 @@
     &--button {
         @include formButton;
         background-color: $secondaryWhite
+    }
+}
+
+.hourly-block {
+    padding: 16px;
+    background-color: $secondaryBlack;
+    border-radius: 10px;
+    &--title {
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        padding-bottom: 24px;
     }
 }
 
