@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { motion } from "framer-motion"
 
 export default function AuthForm() {
     const [isLoginMode, setIsLoginMode] = useState<boolean>(true)
@@ -62,12 +63,15 @@ export default function AuthForm() {
             }
         </div>
         <div className="auth--lower">
-            <button 
+            <motion.button 
+                type="button"
                 className="auth--lower__button"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
                 onClick={authHandler}
             >
                 {isLoginMode ? "Войти" : "Зарегистрироваться"}
-            </button>
+            </motion.button>
             <p className="auth--lower__text">{
                 isLoginMode 
                     ? <>ещё не зарегистрированы?<br/><span onClick={modeSwitch}>создать аккаунт</span></>

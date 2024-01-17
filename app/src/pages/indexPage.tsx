@@ -87,6 +87,7 @@ export default function IndexPage() {
                     </div>
                     <div className="buttons">
                         <motion.button
+                            type="button"
                             className="buttons--button"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
@@ -95,6 +96,7 @@ export default function IndexPage() {
                             Подробнее
                         </motion.button>
                         <motion.button
+                            type="button"
                             className="buttons--button"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}

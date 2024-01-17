@@ -16,12 +16,14 @@ import pressure from '../assets/pressure.svg'
 import exportIcon from '../assets/export.svg'
 
 export default function DetailsPage() {
-    const navigator = useNavigate()
+    const initialText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    const navigateTo = useNavigate()
 
     const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
     const [isReportOpen, setIsReportOpen] = useState<boolean>(false)
     const [isExportMenuOpen, setIsExportMenuOpen] = useState<boolean>(false) 
     const [isAuthModalOpen, setIsAuthModalOpen] = useState<boolean>(false)
+    const [isCopy, setIsCopy] = useState<boolean>(false)
 
     const [userReport, setUserReport] = useState<string>('')
 
@@ -47,10 +49,12 @@ export default function DetailsPage() {
                         <div className="summary">
                             <div className="summary--heading">
                                 <h2 className="summary--heading__title">Краткая сводка</h2>
-                                <motion.button 
+                                <motion.button
+                                    type="button"
                                     className="summary--heading__icon"
                                     whileHover={{ scale: 1.1 }}
                                     whileTap={{ scale: 0.9 }}
+                                    onClick={() => setIsExportMenuOpen(true)}
                                 >
                                     <img src={exportIcon} alt="" />
                                 </motion.button>
@@ -82,6 +86,7 @@ export default function DetailsPage() {
                                 </div>
                             </div>
                             <motion.button 
+                                type="button"
                                 className="summary--button"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.9 }}
@@ -100,17 +105,19 @@ export default function DetailsPage() {
                     onClose={() => setIsMenuOpen(false)}
                 >
                     <nav className="nav-menu">
-                        <motion.button 
+                        <motion.button
+                            type="button"
                             className="nav-menu--button"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
                             onClick={() => {setIsAuthModalOpen(true); setIsMenuOpen(false)}}
                         >Войти / Зарегистрироваться</motion.button>
                         <motion.button 
+                            type="button"
                             className="nav-menu--button"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
-                            onClick={() => navigator('/')}
+                            onClick={() => navigateTo('/')}
                         >Домашняя страница</motion.button>
                     </nav>
                 </Modal>
@@ -119,9 +126,24 @@ export default function DetailsPage() {
         <AnimatePresence>
             {isExportMenuOpen && (                
                 <Modal
-                    onClose={() => setIsExportMenuOpen(false)}
+                    onClose={() => {setIsExportMenuOpen(false), setIsCopy(false)}}
                 >
-                    <></>
+                    <form className="export-form">
+                        <p className="export-form--code">{initialText}</p>
+                        <motion.button 
+                            type="button"
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.9 }}
+                            className="export-form--copy-button"
+                            style={{
+                                backgroundColor: isCopy ? "#044E2A" : "#111111"
+                            }}
+                            onClick={() => {
+                                navigator.clipboard.writeText(initialText)
+                                setIsCopy(true)
+                            }}
+                        >{isCopy ? "Скопировано" : "Скопировать код"}</motion.button>
+                    </form>
                 </Modal>
             )}
         </AnimatePresence>
@@ -142,6 +164,7 @@ export default function DetailsPage() {
                             />
                         </div>
                         <motion.button 
+                            type="button"
                             className="report-form--button"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}

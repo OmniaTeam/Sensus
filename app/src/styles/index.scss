@@ -134,45 +134,21 @@
         }
     }
     &--button {
-        font-size: 16px;
-        font-weight: 700;
-        background-color: $secondaryWhite;
-        color: $primaryWhite;
-        padding: 16px 0;
-        border: none;
-        width: 100%;
-        border-radius: 5px;
-        cursor: pointer;
+        @include formButton;
+        background-color: $secondaryWhite
     }
 }
 
 .nav-menu {
-    max-width: 315px;
-    margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+    @include formContainer;
     &--button {
-        font-size: 16px;
-        font-weight: 700;
-        width: 100%;
-        padding: 20px 0;
-        border-radius: 10px;
-        border: none;
-        background-color: $secondaryWhite;
-        color: $primaryWhite;
-        cursor: pointer;
+        @include formButton;
+        background-color: $secondaryWhite
     }
 }
 
 .report-form {
-    max-width: 315px;
-    margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
+    @include formContainer;
     &--heading {
         font-size: 24px;
         font-weight: 700;
@@ -191,26 +167,29 @@
             opacity: 0.5;
         }
         &__place {
-            padding: 16px 0 16px 8px;
-            width: calc(100% - 11px);
-            border: 1px solid #FFF;
-            background-color: $secondaryBlack;
-            border-radius: 10px;
-            color: $primaryWhite;
-            font-size: 16px;
-            font-weight: 700;
-            letter-spacing: 0.8px;
+            @include formInput
         }
     }
     &--button {
+        @include formButton
+    }
+}
+
+.export-form {
+    @include formContainer;
+    &--code {
+        width: calc(100% - 16px);
         font-size: 16px;
-        font-weight: 700;
-        letter-spacing: 0.8px;
-        color: $primaryWhite;
-        background-color: $primaryBlack;
-        width: 100%;
-        padding: 16px 0;
-        border: none;
+        font-weight: 500;
+        letter-spacing: 0.7px;
+        background-color: $secondaryWhite;
+        padding: 16px 8px;
         border-radius: 10px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    &--copy-button {
+        @include formButton
     }
 }
