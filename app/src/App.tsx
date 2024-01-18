@@ -15,7 +15,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import IndexPage from "./pages/indexPage";
 import DetailsPage from "./pages/detailsPage";
 
-// navigator.serviceWorker.register('service-worker.js');
+navigator.serviceWorker.register('service-worker.js');
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
