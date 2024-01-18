@@ -1,4 +1,5 @@
-import { EWindDirectionType } from "../models/EWindDirectionType"
+import { EWindDirectionType } from '../models/EWindDirectionType'
+import { getDirectionName, getDirectionDegree } from '../utils/windUtils'
 
 import arrow from '../assets/arrow.svg'
 
@@ -13,9 +14,11 @@ export default function WindCard(props: WindCardProps) {
         <p className="wind--hour">{props.hour}</p>
         <div className="wind--card">
             <p className="wind--card__value">{props.wind}</p>
-            <p className="wind--card__direction">{props.windDirection}</p>
+            <p className="wind--card__direction">{getDirectionName(props.windDirection)}</p>
             <div className="wind--card__arrow">
-                <img src={arrow} alt="" />
+                <img src={arrow} alt="" style={{
+                    transform: `rotate(${getDirectionDegree(props.windDirection)}deg)`
+                }}/>
             </div>
         </div>
     </div>

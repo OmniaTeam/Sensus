@@ -17,10 +17,14 @@
         gap: 8px;
         background-color: $secondaryWhite;
         border-radius: 5px;
-        &__hour {
+        &__value {
             font-size: 16px;
             font-weight: 500;
-            line-height: 16px;
+        }
+        &__direction {
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0.5;
         }
         &__arrow {
             display: flex;
