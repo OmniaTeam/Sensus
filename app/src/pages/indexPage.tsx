@@ -100,6 +100,7 @@ export default function IndexPage() {
                             className="buttons--button"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
+                            onClick={() => navigator('/weekly')}
                         >
                             Следующие 7 дней
                         </motion.button>

@@ -84,10 +84,10 @@
     } 
 }
 
-.details {
+.details,
+.weekly {
     &--container {
-        max-width: 315px;
-        margin: 0 auto;
+        @include container;
         &__content {
             display: flex;
             flex-direction: column;
@@ -102,9 +102,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 24px;
-    padding: 16px;
-    background-color: $secondaryBlack;
-    border-radius: 10px;
+    @include blockContainer;
     &--heading {
         display: flex;
         justify-content: space-between;
@@ -142,27 +140,13 @@
     }
 }
 
-.hourly-temperature {
-    padding: 16px;
-    background-color: $secondaryBlack;
-    border-radius: 10px;
+.temperature-block,
+.wind-block,
+.pressure-block,
+.humidity-block {
+    @include blockContainer;
     &--title {
-        font-size: 16px;
-        font-weight: 700;
-        letter-spacing: 0.8px;
-        padding-bottom: 16px;
-    }
-}
-
-.hourly-wind {
-    padding: 16px;
-    background-color: $secondaryBlack;
-    border-radius: 10px;
-    &--title {
-        font-size: 16px;
-        font-weight: 700;
-        letter-spacing: 0.8px;
-        padding-bottom: 16px;
+        @include blockTitle;
         span {
             opacity: 0.5;
             font-weight: 400

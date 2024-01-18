@@ -99,8 +99,8 @@ export default function DetailsPage() {
                                 Не согласен? Составь отчёт
                             </motion.button>
                         </div>
-                        <div className="hourly-temperature">
-                            <h2 className="hourly-temperature--title">Почасовая сводка</h2>
+                        <div className="temperature-block">
+                            <h2 className="temperature-block--title">Почасовая сводка</h2>
                             <Swiper
                                 spaceBetween={8}
                                 slidesPerView={4}
@@ -122,8 +122,8 @@ export default function DetailsPage() {
                                 )}
                             </Swiper>
                         </div>
-                        <div className="hourly-wind">
-                            <h2 className="hourly-wind--title">Ветер <span>м/с</span></h2>
+                        <div className="wind-block">
+                            <h2 className="wind-block--title">Ветер <span>м/с</span></h2>
                             <Swiper
                                 spaceBetween={8}
                                 slidesPerView={6}
@@ -143,6 +143,12 @@ export default function DetailsPage() {
                                     </SwiperSlide>
                                 )}
                             </Swiper>
+                        </div>
+                        <div className="pressure-block">
+                            <h2 className="pressure-block--title">Давление <span>мм.рт.ст.</span></h2>
+                        </div>
+                        <div className="humidity-block">
+                            <h2 className="humidity-block--title">Влажность <span>%</span></h2>
                         </div>
                     </div>
                 </div>

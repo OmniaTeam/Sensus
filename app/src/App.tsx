@@ -14,6 +14,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import IndexPage from "./pages/indexPage";
 import DetailsPage from "./pages/detailsPage";
+import WeeklyPage from "./pages/weeklyPage";
 
 navigator.serviceWorker.register('service-worker.js');
 
@@ -27,6 +28,7 @@ const App = () => {
             <Routes>
                 <Route path="/" index={true} element={<IndexPage/>}/>
                 <Route path="/details" element={<DetailsPage/>}/>
+                <Route path="/weekly" element={<WeeklyPage/>}/>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>

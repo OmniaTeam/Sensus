@@ -3,6 +3,11 @@ $primaryWhite: #FFFFFF;
 $secondaryBlack: #1E1E1E;
 $secondaryWhite: #2C2C2C;
 
+@mixin container {
+    max-width: 315px;
+    margin: 0 auto;
+}
+
 @mixin formContainer {
     max-width: 315px;
     display: flex;
@@ -35,6 +40,19 @@ $secondaryWhite: #2C2C2C;
     border: none;
     border-radius: 10px;
     cursor: pointer;
+}
+
+@mixin blockContainer {
+    padding: 16px;
+    background-color: $secondaryBlack;
+    border-radius: 10px;
+}
+
+@mixin blockTitle {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding-bottom: 16px;
 }
 
 @font-face {
