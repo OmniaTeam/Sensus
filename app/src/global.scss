@@ -37,6 +37,27 @@ $secondaryWhite: #2C2C2C;
     cursor: pointer;
 }
 
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../public/fonts/Roboto/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    src: url('../public/fonts/Roboto/Roboto-Medium.ttf');
+}
+
+@font-face {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    src: url('../public/fonts/Roboto/Roboto-Bold.ttf');
+}
+
 :root {
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -76,4 +97,8 @@ input {
 
 ::-webkit-scrollbar {
     width: 0;
+}
+
+.swiper-wrapper {
+    padding: 8px 0
 }

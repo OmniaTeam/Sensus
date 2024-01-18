@@ -4,12 +4,14 @@ import { ECircleType } from "../models/ECircleType";
 import { useNavigate } from "react-router-dom";
 import { getFormattedCurrentData } from "../utils/dataUtils";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { hourly } from "../data/hourlyInfo";
+import { hourly } from "../data/temperatureHourlyInfo";
+import { windHourlyInfo } from "../data/windHourlyInfo";
 
 import TemperatureCircle from "../components/temperatureCircle";
 import Modal from "../components/modal";
 import Metric from "../components/metric";
 import AuthForm from "../components/authForm";
+import WindCard from "../components/windCard";
 
 import menu from '../assets/menu.svg'
 import humidity from '../assets/humidity.svg'
@@ -97,8 +99,8 @@ export default function DetailsPage() {
                                 Не согласен? Составь отчёт
                             </motion.button>
                         </div>
-                        <div className="hourly-block">
-                            <h2 className="hourly-block--title">Почасовая сводка</h2>
+                        <div className="hourly-temperature">
+                            <h2 className="hourly-temperature--title">Почасовая сводка</h2>
                             <Swiper
                                 spaceBetween={8}
                                 slidesPerView={4}
@@ -114,6 +116,28 @@ export default function DetailsPage() {
                                             key={index}
                                             circletType={value.circletType}
                                             temperature={value.temperature}
+                                            hour={value.hour}
+                                        />
+                                    </SwiperSlide>
+                                )}
+                            </Swiper>
+                        </div>
+                        <div className="hourly-wind">
+                            <h2 className="hourly-wind--title">Ветер <span>м/с</span></h2>
+                            <Swiper
+                                spaceBetween={8}
+                                slidesPerView={6}
+                                onSlideChange={() => console.log('slide change')}
+                                onSwiper={(swiper) => console.log(swiper)}
+                                style={{
+                                    cursor: "grab"
+                                }}
+                            >
+                                {windHourlyInfo.map((value, index) =>
+                                    <SwiperSlide key={index}>
+                                        <WindCard 
+                                            windDirection={value.direction}
+                                            wind={value.wind}
                                             hour={value.hour}
                                         />
                                     </SwiperSlide>

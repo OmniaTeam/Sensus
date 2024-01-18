@@ -11,7 +11,6 @@ const initCache = () => {
 };
 
 const tryNetwork = (req, timeout) => {
-    console.log(req)
     return new Promise((resolve, reject) => {
         const timeoutId = setTimeout(reject, timeout);
         fetch(req).then((res) => {
@@ -36,7 +35,6 @@ const getFromCache = (req) => {
 };
 
 self.addEventListener("install", (e) => {
-    console.log("Installed");
     e.waitUntil(initCache());
 });
 
@@ -53,7 +51,5 @@ self.addEventListener('activate', (e) => {
 });
 
 self.addEventListener("fetch", (e) => {
-    console.log("Try network and store result or get data from cache");
-    // Try network and if it fails, go for the cached copy.
     e.respondWith(tryNetwork(e.request, 400).catch(() => getFromCache(e.request)));
 });

@@ -142,7 +142,7 @@
     }
 }
 
-.hourly-block {
+.hourly-temperature {
     padding: 16px;
     background-color: $secondaryBlack;
     border-radius: 10px;
@@ -150,7 +150,23 @@
         font-size: 16px;
         font-weight: 700;
         letter-spacing: 0.8px;
-        padding-bottom: 24px;
+        padding-bottom: 16px;
+    }
+}
+
+.hourly-wind {
+    padding: 16px;
+    background-color: $secondaryBlack;
+    border-radius: 10px;
+    &--title {
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.8px;
+        padding-bottom: 16px;
+        span {
+            opacity: 0.5;
+            font-weight: 400
+        }
     }
 }
 
