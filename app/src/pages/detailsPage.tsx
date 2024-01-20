@@ -6,12 +6,15 @@ import { getFormattedCurrentData } from "../utils/dataUtils";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { hourly } from "../data/temperatureHourlyInfo";
 import { windHourlyInfo } from "../data/windHourlyInfo";
+import { pressureHourly } from "../data/pressureHourlyInfo";
+import { humidityHourly } from "../data/humidityHourlyInfo";
 
 import TemperatureCircle from "../components/temperatureCircle";
 import Modal from "../components/modal";
 import Metric from "../components/metric";
 import AuthForm from "../components/authForm";
 import WindCard from "../components/windCard";
+import Chart from "../components/chartComponent";
 
 import menu from '../assets/menu.svg'
 import humidity from '../assets/humidity.svg'
@@ -146,9 +149,19 @@ export default function DetailsPage() {
                         </div>
                         <div className="pressure-block">
                             <h2 className="pressure-block--title">Давление <span>мм.рт.ст.</span></h2>
+                            <div className="pressure-block--content">
+                                <Chart
+                                    labels={pressureHourly.map((element) => element.label)}
+                                    values={pressureHourly.map((element) => element.value)}
+                                />
+                            </div>
                         </div>
                         <div className="humidity-block">
                             <h2 className="humidity-block--title">Влажность <span>%</span></h2>
+                                <Chart
+                                    labels={humidityHourly.map((element) => element.label)}
+                                    values={humidityHourly.map((element) => element.value)}
+                                />
                         </div>
                     </div>
                 </div>
