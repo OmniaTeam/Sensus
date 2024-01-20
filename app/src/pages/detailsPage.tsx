@@ -88,7 +88,7 @@ export default function DetailsPage() {
                                         svgElement={
                                             <img src={pressure} alt=""/>
                                         }
-                                        value={'763mmHg'}
+                                        value={'763 мм.рт.ст'}
                                     />
                                 </div>
                             </div>
@@ -117,7 +117,7 @@ export default function DetailsPage() {
                                     <SwiperSlide key={index}>
                                         <TemperatureCircle
                                             key={index}
-                                            circletType={value.circletType}
+                                            circletType={ECircleType.secondaryCircle}
                                             temperature={value.temperature}
                                             hour={value.hour}
                                         />
@@ -158,10 +158,12 @@ export default function DetailsPage() {
                         </div>
                         <div className="humidity-block">
                             <h2 className="humidity-block--title">Влажность <span>%</span></h2>
+                            <div className="humidity-block--content">
                                 <Chart
                                     labels={humidityHourly.map((element) => element.label)}
                                     values={humidityHourly.map((element) => element.value)}
                                 />
+                            </div>
                         </div>
                     </div>
                 </div>

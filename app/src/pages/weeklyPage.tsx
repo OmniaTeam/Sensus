@@ -2,10 +2,17 @@ import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useNavigate } from "react-router-dom"
 
+import { temperatureWeekly } from "../data/temperatureWeeklyInfo"
+import { pressureWeekly } from "../data/pressureWeeklyInfo"
+import { humidityWeekly } from "../data/humidityWeeeklyInfo"
+import { windWeekly } from "../data/windWeeklyInfo"
+
 import Modal from "../components/modal"
 import AuthForm from "../components/authForm"
+import Chart from "../components/chartComponent"
 
 import menu from '../assets/menu.svg'
+import WindCard from "../components/windCard"
 
 export default function WeeklyPage() {
     const navigateTo = useNavigate()
@@ -35,15 +42,43 @@ export default function WeeklyPage() {
                     <div className="weekly--container__content">
                         <div className="temperature-block">
                             <h2 className="temperature-block--title">Температура <span>C°</span></h2>
+                            <div className="temperature-blovk--container">
+                                <Chart
+                                    labels={temperatureWeekly.map((element) => element.day)}
+                                    values={temperatureWeekly.map((element) => element.temperature)}
+                                />
+                            </div>
                         </div>
                         <div className="wind-block">
                             <h2 className="wind-block--title">Ветер <span>м/с</span></h2>
+                            <div className="wind-block--container">
+                                {windWeekly.map((value, index) => 
+                                    <WindCard 
+                                        key={index}
+                                        windDirection={value.direction}
+                                        wind={value.wind}
+                                        hour={value.hour}
+                                    />
+                                )}
+                            </div>
                         </div>
                         <div className="pressure-block">
                             <h2 className="pressure-block--title">Давление <span>мм.рт.ст.</span></h2>
+                            <div className="pressure-block--container">
+                                <Chart
+                                    labels={pressureWeekly.map((element) => element.label)}
+                                    values={pressureWeekly.map((element) => element.value)}
+                                />
+                            </div>
                         </div>
                         <div className="humidity-block">
                             <h2 className="humidity-block--title">Влажность <span>%</span></h2>
+                            <div className="humidity-block--container">
+                                <Chart
+                                    labels={humidityWeekly.map((element) => element.label)}
+                                    values={humidityWeekly.map((element) => element.value)}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

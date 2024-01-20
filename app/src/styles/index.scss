@@ -154,6 +154,14 @@
     }
 }
 
+.wind-block {
+    &--container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between
+    }
+}
+
 .nav-menu {
     @include formContainer;
     &--button {

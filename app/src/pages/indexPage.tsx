@@ -59,7 +59,7 @@ export default function IndexPage() {
                                 svgElement={
                                     <img src={pressure} alt=""/>
                                 }
-                                value={'763mmHg'}
+                                value={'763 мм.рт.ст'}
                             />
                         </div>
                         <div className="hourly">
