@@ -1,4 +1,4 @@
-import { EWindDirectionType } from '../models/EWindDirectionType'
+import { EWindDirectionType } from '../models/enums/EWindDirectionType'
 import { getDirectionName, getDirectionDegree } from '../utils/windUtils'
 
 import arrow from '../assets/arrow.svg'

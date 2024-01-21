@@ -1,4 +1,4 @@
-import { EWindDirectionType } from "../models/EWindDirectionType"
+import { EWindDirectionType } from "../models/enums/EWindDirectionType"
 
 export const windHourlyInfo = [
     {"wind": 5, "hour": "00:00", "direction": EWindDirectionType.N},

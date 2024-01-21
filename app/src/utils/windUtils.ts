@@ -1,4 +1,4 @@
-import { EWindDirectionType } from "../models/EWindDirectionType";
+import { EWindDirectionType } from "../models/enums/EWindDirectionType";
 
 export const getDirectionName = (type : EWindDirectionType) => {
     switch (type) {

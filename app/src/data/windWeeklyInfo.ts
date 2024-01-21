@@ -1,4 +1,4 @@
-import { EWindDirectionType } from "../models/EWindDirectionType"
+import { EWindDirectionType } from "../models/enums/EWindDirectionType"
 
 export const windWeekly = [
     {"wind": 5, "hour": "20.01", "direction": EWindDirectionType.N},

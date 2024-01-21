@@ -1,4 +1,4 @@
-import { ECircleType } from "../models/ECircleType";
+import { ECircleType } from "../models/enums/ECircleType";
 
 interface TemperatureCircleProps {
     circletType : ECircleType;

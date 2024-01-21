@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion"
-import { ECircleType } from "../models/ECircleType";
+import { ECircleType } from "../models/enums/ECircleType";
 import { useNavigate } from "react-router-dom";
 import { getFormattedCurrentData } from "../utils/dataUtils";
 import { Swiper, SwiperSlide } from 'swiper/react';

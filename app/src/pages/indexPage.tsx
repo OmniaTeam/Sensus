@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ECircleType } from '../models/ECircleType';
+import { ECircleType } from '../models/enums/ECircleType';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { getFormattedCurrentData } from '../utils/dataUtils';
