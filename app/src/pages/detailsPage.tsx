@@ -4,6 +4,7 @@ import { ECircleType } from "../models/ECircleType";
 import { useNavigate } from "react-router-dom";
 import { getFormattedCurrentData } from "../utils/dataUtils";
 import { Swiper, SwiperSlide } from 'swiper/react';
+
 import { hourly } from "../data/temperatureHourlyInfo";
 import { windHourlyInfo } from "../data/windHourlyInfo";
 import { pressureHourly } from "../data/pressureHourlyInfo";
@@ -129,7 +130,7 @@ export default function DetailsPage() {
                             <h2 className="wind-block--title">Ветер <span>м/с</span></h2>
                             <Swiper
                                 spaceBetween={8}
-                                slidesPerView={6}
+                                slidesPerView={7}
                                 onSlideChange={() => console.log('slide change')}
                                 onSwiper={(swiper) => console.log(swiper)}
                                 style={{
